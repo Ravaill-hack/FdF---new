@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:01:04 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 15:55:55 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:14:24 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,6 +48,7 @@ t_map *init_map(const char *path)
 	map->point = (t_point **)malloc(sizeof(t_point *));
 	if(!map->point)
 		return (NULL);
+	*(map->point) = NULL;
 	get_map(map, path);
 	return (map);
 }
