@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:01:04 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 16:14:24 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 16:16:26 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -104,39 +104,4 @@ int	lst_create_n_add(t_point **nodes, char *l, int j)
 	}
 	ft_free_tab_c(s_l);
 	return (nb_val);
-}
-
-t_point *ft_new_node(char *str, int i, int j)
-{
-	t_point	*node;
-
-	node = (t_point *)malloc(sizeof(t_point));
-	if (!node)
-	{
-		ft_putstr_fd("Error : node malloc failed", 2);		
-		return (NULL);
-	}
-	node->x = i;
-	node->y = j;
-	node->z = ft_atoi(str);
-	node->col = ext_col(str);
-	node->next = NULL;
-	node->up = NULL;
-	node->lft = NULL;
-	return (node);
-}
-
-void	ft_lst_add_right(t_point **nodes, t_point *elem)
-{
-	if (!nodes)
-	{
-		ft_putstr_fd("Error : nodes** doesn't exist", 2);
-		return ;
-	}
-	if (!(*nodes))
-		*nodes = elem;
-	else
-		ft_lst_last(*nodes)->next = elem;
-	elem->up = find_up(elem, *nodes);
-	elem->lft = find_lft(elem, *nodes);
 }

@@ -20,10 +20,8 @@ SRCS_FILES =  \
 	$(SRCS_DIR)/free_utils.c \
 	$(SRCS_DIR)/init.c \
 	$(SRCS_DIR)/events.c \
-	$(SRCS_DIR)/parsing.c \
-	$(SRCS_DIR)/init_nodes.c \
 	$(SRCS_DIR)/utils.c \
-	$(SRCS_DIR)/info.c \
+	$(SRCS_DIR)/debug.c \
 	$(SRCS_DIR)/lst_utils.c \
 	$(SRCS_DIR)/neighbours.c \
 	$(SRCS_DIR)/color.c \
