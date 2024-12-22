@@ -6,7 +6,7 @@
 /*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:01:04 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 17:53:03 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:16:28 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ t_var	*init_var(const char *path)
 	return (var);
 }
 
-t_map *init_map(const char *path)
+t_map	*init_map(const char *path)
 {
 	t_map	*map;
 
@@ -49,7 +49,7 @@ t_map *init_map(const char *path)
 	if (!map)
 		return (NULL);
 	map->point = (t_point **)calloc(1, sizeof(t_point *));
-	if(!map->point)
+	if (!map->point)
 		return (NULL);
 	*(map->point) = NULL;
 	get_map(map, path);
@@ -67,7 +67,7 @@ t_img	*init_img(void *mlx_p)
 	im->bp = 0;
 	im->sl = 0;
 	im->ed = 0;
-	im->im = (int*)(mlx_get_data_addr(im->im_p, &im->bp, &im->sl, &im->ed));
+	im->im = (int *)(mlx_get_data_addr(im->im_p, &im->bp, &im->sl, &im->ed));
 	return (im);
 }
 
@@ -113,7 +113,6 @@ int	lst_create_n_add(t_point **nodes, char *l, int j)
 		ft_putstr_fd("Error : line split failed", 2);
 		return (-1);
 	}
-
 	nb_val = ft_count_words(s_l) - 1;
 	while (i < nb_val)
 	{

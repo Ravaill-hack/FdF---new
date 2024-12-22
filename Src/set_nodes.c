@@ -3,12 +3,11 @@
 /*                                                        :::      ::::::::   */
 /*   set_nodes.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/18 09:30:33 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 14:23:43 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:18:30 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
-

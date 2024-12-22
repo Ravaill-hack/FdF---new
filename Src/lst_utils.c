@@ -6,7 +6,7 @@
 /*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:25:47 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 19:12:35 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:17:45 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,14 +19,14 @@ t_point	*ft_lst_last(t_point *nodes)
 	return (nodes);
 }
 
-t_point *ft_new_node(char *str, int i, int j)
+t_point	*ft_new_node(char *str, int i, int j)
 {
 	t_point	*node;
 
 	node = (t_point *)calloc(1, sizeof(t_point));
 	if (!node)
 	{
-		ft_putstr_fd("Error : node malloc failed", 2);		
+		ft_putstr_fd("Error : node malloc failed", 2);
 		return (NULL);
 	}
 	node->x = i;

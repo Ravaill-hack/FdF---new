@@ -6,7 +6,7 @@
 /*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:59:00 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 18:26:12 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:17:15 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	ft_close_n_free(void *v)
 {
 	t_var	*var;
 
-	var = (t_var*)v;
+	var = (t_var *)v;
 	ft_close_aff(var);
 	ft_free_img(var->img);
 	ft_free_map(var->map);
@@ -74,11 +74,4 @@ void	ft_free_nodes(t_point **nodes)
 	}
 	free(nodes);
 	nodes = NULL;
-}
-
-void	ft_close_aff(t_var *var)
-{
-	mlx_destroy_image(var->mlx_p, var->img->im_p);
-	mlx_destroy_window(var->mlx_p, var->win_p);
-	mlx_destroy_display(var->mlx_p);
 }
