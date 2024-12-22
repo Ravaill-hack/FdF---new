@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:51:16 by Lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 14:22:13 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:58:40 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,7 +33,7 @@ void	print_info_map(t_map *map)
 	j = 0;
 	ft_printf("\n\ntitle : %s\n", map->title);
 	ft_printf("path : %s\n", map->path);
+	ft_printf("y size : %d\n", map->size_y);
 	ft_printf("x size : %d\n", map->size_x);
-	ft_printf("y size : %d\n\n", map->size_y);
-	ft_print_info_list(*(map->point));
+	print_info_list(*(map->point));
 }

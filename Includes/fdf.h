@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:10:07 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 14:18:22 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:48:53 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,8 +39,8 @@ typedef struct s_map
 	char	*title;
 	char	*path;
 	t_point	**point;
-	int		*size_x;
-	int		*size_y;
+	int		size_x;
+	int		size_y;
 }	t_map;
 
 typedef struct s_img
@@ -63,8 +63,9 @@ typedef struct s_var
 /*
 	Fonctions auxiliaires
 */
+char	*get_title(const char *path);
+t_point	*ft_lst_last(t_point *nodes);
 int		ft_count_words(char **str);
-char	*get_title(char *path);
 /*
 	Fonctions de debuggage
 */
@@ -79,7 +80,7 @@ t_map 	*init_map(const char *path);
 /*
 	Fonctions pour parser la carte
 */
-void	get_map(t_map *map, char *path);
+void	get_map(t_map *map, const char *path);
 int		lst_create_n_add(t_point **nodes, char *l, int j);
 t_point *ft_new_node(char *str, int i, int j);
 void	ft_lst_add_right(t_point **nodes, t_point *elem);
@@ -112,5 +113,6 @@ void	ft_free_var(t_var *var);
 void	ft_free_img(t_img *img);
 void	ft_free_map(t_map *map);
 void	ft_free_nodes(t_point **nodes);
+void	ft_close_aff(t_var *var);
 
 #endif

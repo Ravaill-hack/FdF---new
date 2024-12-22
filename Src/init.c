@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:01:04 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 14:28:33 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:55:55 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,50 +52,32 @@ t_map *init_map(const char *path)
 	return (map);
 }
 
-char	*get_title(char *path)
-{
-	char	*title;
-	char	**temp;
-	int		i;
-
-	i = 0;
-	title = NULL;
-	temp = ft_split(path, '/');
-	if (!temp)
-		return (NULL);
-	while (temp[i] != NULL)
-		i++;
-	if (i > 0)
-		title = ft_strdup(temp[i - 1]);
-	ft_free_tab_c(temp);
-	return (title);
-}
-
-void	get_map(t_map *map, char *path)
+void	get_map(t_map *map, const char *path)
 {
 	int		j;
 	int		fd;
 	char	*line;
 
-	j = 0;
+	j = -1;
 	fd = open(path, O_RDONLY);
 	line = NULL;
-	while (line != NULL || j == 0)
+	while (line != NULL || j == -1)
 	{
+		free(line);
+		line = NULL;
 		line = get_next_line(fd);
 		j++;
 		if (line == NULL)
 			break ;
-		if (j == 1)
+		if (j == 0)
 			map->size_x = lst_create_n_add(map->point, line, j);
 		else
 			lst_create_n_add(map->point, line, j);
-		free (line);
 	}
 	close (fd);
 	map->size_y = j;
 	map->title = get_title(path);
-	map->path = path;
+	map->path = ft_strdup(path);
 }
 
 int	lst_create_n_add(t_point **nodes, char *l, int j)
@@ -103,15 +85,17 @@ int	lst_create_n_add(t_point **nodes, char *l, int j)
 	char	**s_l;
 	int		nb_val;
 	int		i;
-	t_point *node;
 
+	nb_val = 0;
+	i = 0;
 	s_l = ft_split(l, ' ');
 	if (!s_l)
 	{
 		ft_putstr_fd("Error : line split failed", 2);
 		return (-1);
 	}
-	nb_val = ft_count_words(s_l);
+
+	nb_val = ft_count_words(s_l) - 1;
 	while (i < nb_val)
 	{
 		ft_lst_add_right(nodes, ft_new_node(s_l[i], i, j));
@@ -143,9 +127,6 @@ t_point *ft_new_node(char *str, int i, int j)
 
 void	ft_lst_add_right(t_point **nodes, t_point *elem)
 {
-	t_point	*last;
-
-	last = ft_lst_last(nodes);
 	if (!nodes)
 	{
 		ft_putstr_fd("Error : nodes** doesn't exist", 2);
@@ -154,8 +135,7 @@ void	ft_lst_add_right(t_point **nodes, t_point *elem)
 	if (!(*nodes))
 		*nodes = elem;
 	else
-		last->next = elem;
+		ft_lst_last(*nodes)->next = elem;
 	elem->up = find_up(elem, *nodes);
 	elem->lft = find_lft(elem, *nodes);
 }
-

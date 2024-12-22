@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:54:49 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 14:17:33 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 15:59:57 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,8 +25,9 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		var = init_var(argv[1]);
+		//print_info_map(var->map);
+		ft_close_aff(var);
 		ft_free_var(var);
-		ft_putstr_fd("OK : it seems to work correctly", 1);
 	}
 	else
 	{
