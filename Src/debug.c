@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   info.c                                             :+:      :+:    :+:   */
+/*   debug.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/17 11:51:16 by Lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 15:58:40 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:32:06 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,11 +26,6 @@ void	print_info_list(t_point *n)
 
 void	print_info_map(t_map *map)
 {
-	int	i;
-	int	j;
-
-	i = 0;
-	j = 0;
 	ft_printf("\n\ntitle : %s\n", map->title);
 	ft_printf("path : %s\n", map->path);
 	ft_printf("y size : %d\n", map->size_y);

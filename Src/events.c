@@ -3,12 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   events.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:08:15 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 14:18:58 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:18:04 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
+int	do_sth(int keyc, t_var *var)
+{
+	if (keyc == 65307)
+		ft_close_n_free(var);
+	return (0);
+}

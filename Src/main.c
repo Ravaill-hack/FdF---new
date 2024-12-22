@@ -3,19 +3,18 @@
 /*                                                        :::      ::::::::   */
 /*   main.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:54:49 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 15:59:57 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:22:09 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../Includes/fdf.h"
 
 /*
-Fonctions de debuggage :
-		print_info_map(map);	
-		print_info_list(*nodes);
+Debuggage :
+		print_info_map(var->map);	
 */
 
 int	main(int argc, char **argv)
@@ -25,9 +24,9 @@ int	main(int argc, char **argv)
 	if (argc == 2)
 	{
 		var = init_var(argv[1]);
-		//print_info_map(var->map);
-		ft_close_aff(var);
-		ft_free_var(var);
+		mlx_hook(var->win_p, 17, 0, ft_close_n_free, (void *)var);
+		mlx_key_hook(var->win_p, do_sth, (void *)var);		
+		mlx_loop(var->mlx_p);
 	}
 	else
 	{

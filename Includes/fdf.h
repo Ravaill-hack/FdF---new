@@ -3,25 +3,23 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:10:07 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 15:48:53 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:25:01 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FDF_H
 # define FDF_H
-# define X_WIN 750
-# define Y_WIN 1500
+# define X_WIN 1400
+# define Y_WIN 900
 
 # include <unistd.h>
 # include <stdlib.h>
 # include <math.h>
 # include "minilibx-linux/mlx.h"
 # include "libft/Includes/libft.h"
-# include <X11/X.h>
-# include <X11/keysym.h>
 
 typedef struct s_point
 {
@@ -100,7 +98,7 @@ int		ext_col(char *str);
 /*
 	Fonctions pour gerer les evenements
 */
-
+int		do_sth(int keyc, t_var *var);
 /*
 	Fonctions pour dessiner des lignes
 */
@@ -109,7 +107,7 @@ int		ext_col(char *str);
 	Fonctions pour free et delete
 */
 void	ft_free_tab_c(char **str);
-void	ft_free_var(t_var *var);
+int		ft_close_n_free(void *v);
 void	ft_free_img(t_img *img);
 void	ft_free_map(t_map *map);
 void	ft_free_nodes(t_point **nodes);

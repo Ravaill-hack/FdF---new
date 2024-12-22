@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:01:04 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 16:16:26 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:53:03 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,41 +16,59 @@ t_var	*init_var(const char *path)
 {
 	t_var	*var;
 
-	var = (t_var *)malloc(sizeof(t_var));
+	var = (t_var *)calloc(1, sizeof(t_var));
 	if (!var)
 		return (NULL);
 	var->map = init_map(path);
 	var->mlx_p = mlx_init();
-	var->win_p = mlx_new_window(var->mlx_p, X_WIN, Y_WIN, var->map->title);
-	var->img = init_img(var->mlx_p);
-	return (var);
-}
-
-t_img	*init_img(void *mlx_p)
-{
-	t_img	*im;
-
-	im = (t_img *)malloc(sizeof(t_img));
-	if (!im)
+	if (!var->mlx_p)
+	{
+		free(var);
 		return (NULL);
-	im->im_p = mlx_new_image(mlx_p, X_WIN, Y_WIN);
-	im->im = (int*)(mlx_get_data_addr(im->im_p, &im->bp, &im->sl, &im->ed));
-	return (im);
+	}
+	var->win_p = mlx_new_window(var->mlx_p, X_WIN, Y_WIN, var->map->title);
+	if (!var->win_p)
+	{
+		free(var);
+		return (NULL);
+	}
+	var->img = init_img(var->mlx_p);
+	if (!var->img)
+	{
+		free(var);
+		return (NULL);
+	}
+	return (var);
 }
 
 t_map *init_map(const char *path)
 {
 	t_map	*map;
 
-	map = (t_map *)malloc(sizeof(t_map));
+	map = (t_map *)calloc(1, sizeof(t_map));
 	if (!map)
 		return (NULL);
-	map->point = (t_point **)malloc(sizeof(t_point *));
+	map->point = (t_point **)calloc(1, sizeof(t_point *));
 	if(!map->point)
 		return (NULL);
 	*(map->point) = NULL;
 	get_map(map, path);
 	return (map);
+}
+
+t_img	*init_img(void *mlx_p)
+{
+	t_img	*im;
+
+	im = (t_img *)calloc(1, sizeof(t_img));
+	if (!im)
+		return (NULL);
+	im->im_p = mlx_new_image(mlx_p, X_WIN, Y_WIN);
+	im->bp = 0;
+	im->sl = 0;
+	im->ed = 0;
+	im->im = (int*)(mlx_get_data_addr(im->im_p, &im->bp, &im->sl, &im->ed));
+	return (im);
 }
 
 void	get_map(t_map *map, const char *path)

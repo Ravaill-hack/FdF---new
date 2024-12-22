@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   lst_utils.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:25:47 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 16:16:45 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 17:53:25 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,7 +23,7 @@ t_point *ft_new_node(char *str, int i, int j)
 {
 	t_point	*node;
 
-	node = (t_point *)malloc(sizeof(t_point));
+	node = (t_point *)calloc(1, sizeof(t_point));
 	if (!node)
 	{
 		ft_putstr_fd("Error : node malloc failed", 2);		

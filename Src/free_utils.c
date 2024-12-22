@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   free_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 14:59:00 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 16:00:24 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 18:26:12 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,22 +27,24 @@ void	ft_free_tab_c(char **str)
 	str = NULL;
 }
 
-void	ft_free_var(t_var *var)
+int	ft_close_n_free(void *v)
 {
+	t_var	*var;
+
+	var = (t_var*)v;
+	ft_close_aff(var);
 	ft_free_img(var->img);
 	ft_free_map(var->map);
 	free(var->mlx_p);
 	var->mlx_p = NULL;
-	//free(var->win_p);
-	//var->win_p = NULL;
 	free(var);
 	var = NULL;
+	exit(0);
+	return (0);
 }
 
 void	ft_free_img(t_img *img)
 {
-	//free(img->im);
-	//img->im = NULL;
 	free(img);
 	img = NULL;
 }
