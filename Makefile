@@ -23,7 +23,6 @@ SRCS_FILES =  \
 	$(SRCS_DIR)/utils.c \
 	$(SRCS_DIR)/debug.c \
 	$(SRCS_DIR)/lst_utils.c \
-	$(SRCS_DIR)/neighbours.c \
 	$(SRCS_DIR)/color.c \
 	$(SRCS_DIR)/trigo.c \
 	$(SRCS_DIR)/move.c \

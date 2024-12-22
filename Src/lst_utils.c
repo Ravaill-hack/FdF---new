@@ -6,7 +6,7 @@
 /*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:25:47 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 17:53:25 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:12:35 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,4 +52,30 @@ void	ft_lst_add_right(t_point **nodes, t_point *elem)
 		ft_lst_last(*nodes)->next = elem;
 	elem->up = find_up(elem, *nodes);
 	elem->lft = find_lft(elem, *nodes);
+}
+
+t_point	*find_up(t_point *point, t_point *first)
+{
+	if (point->y == 0)
+		return (NULL);
+	while (first)
+	{
+		if ((first->y == point->y - 1) && (first->x == point->x))
+			return (first);
+		first = first->next;
+	}
+	return (NULL);
+}
+
+t_point	*find_lft(t_point *point, t_point *first)
+{
+	if (point->x == 0)
+		return (NULL);
+	while (first)
+	{
+		if ((first->y == point->y) && (first->x == point->x - 1))
+			return (first);
+		first = first->next;
+	}
+	return (NULL);
 }
