@@ -6,7 +6,7 @@
 /*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:10:07 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 19:02:15 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 21:57:55 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FDF_H
 # define X_WIN 1400
 # define Y_WIN 900
+# define PI 3.14159265358979323846
 
 # include <unistd.h>
 # include <stdlib.h>
@@ -26,6 +27,9 @@ typedef struct s_point
 	int				x;
 	int				y;
 	int				z;
+	int				x0;
+	int				y0;
+	int				z0;
 	int				col;
 	struct s_point	*next;
 	struct s_point	*up;
@@ -58,12 +62,21 @@ typedef struct s_var
 	t_img	*img;
 }	t_var;
 
+typedef struct s_line
+{
+	int		i;
+	int		x0;
+	int		y0;
+	int		p;
+}	t_line;
+
 /*
 	Fonctions auxiliaires
 */
 char	*get_title(const char *path);
 t_point	*ft_lst_last(t_point *nodes);
 int		ft_count_words(char **str);
+t_point	*get_next(t_point *node);
 /*
 	Fonctions de debuggage
 */
@@ -90,12 +103,20 @@ int		ext_col(char *str);
 /*
 	Fonctions pour creer l'image
 */
-void	draw_image(t_var *var);
+void	init_image(t_var *var);
+void	draw_image(t_var *var, double fact, double zoom, double angle);
 void	draw_point(t_var *var, int x, int y, int col);
+int		draw_line(t_var *var, t_point *p1, t_point *p2);
+void	draw_vertical_line(t_var *var, t_point *p1, t_point *p2);
+void	draw_horizontal_line(t_var *var, t_point *p1, t_point *p2);
+void	draw_other_line(t_var *var, t_point *p1, int dx, int dy);
+void	draw_other_line_rev(t_var *var, t_point *p1, int dx, int dy);
 /*
 	Fonctions pour modifier l'affichage des noeuds
 */
-
+void	ft_set_alt(t_var *var, double fact);
+void	ft_set_zoom(t_var *var, double zoom);
+void	ft_set_iso(t_var *var, double angle);
 /*
 	Fonctions pour gerer les evenements
 */

@@ -6,7 +6,7 @@
 /*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:25:47 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 19:17:45 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 20:59:41 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,9 @@ t_point	*ft_new_node(char *str, int i, int j)
 	node->x = i;
 	node->y = j;
 	node->z = ft_atoi(str);
+	node->x0 = node->x;
+	node->y0 = node->y;
+	node->z0 = node->z;
 	node->col = ext_col(str);
 	node->next = NULL;
 	node->up = NULL;

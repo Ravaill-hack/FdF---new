@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   utils.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:26:20 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 15:10:28 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 21:36:49 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,4 +39,12 @@ char	*get_title(const char *path)
 		title = ft_strdup(temp[i - 1]);
 	ft_free_tab_c(temp);
 	return (title);
+}
+
+t_point	*get_next(t_point *node)
+{
+	node = node->next;
+	if (node)
+		return (node);
+	return (NULL);
 }
