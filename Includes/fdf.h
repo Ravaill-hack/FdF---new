@@ -6,7 +6,7 @@
 /*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:10:07 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 18:25:01 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/22 19:02:15 by Lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -90,7 +90,8 @@ int		ext_col(char *str);
 /*
 	Fonctions pour creer l'image
 */
-
+void	draw_image(t_var *var);
+void	draw_point(t_var *var, int x, int y, int col);
 /*
 	Fonctions pour modifier l'affichage des noeuds
 */
