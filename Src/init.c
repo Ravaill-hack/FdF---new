@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   init.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/16 15:01:04 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 19:16:28 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 11:46:21 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,7 +67,7 @@ t_img	*init_img(void *mlx_p)
 	im->bp = 0;
 	im->sl = 0;
 	im->ed = 0;
-	im->im = (int *)(mlx_get_data_addr(im->im_p, &im->bp, &im->sl, &im->ed));
+	im->im = mlx_get_data_addr(im->im_p, &im->bp, &im->sl, &im->ed);
 	return (im);
 }
 

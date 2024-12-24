@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   fdf.h                                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:10:07 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 21:57:55 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 11:44:07 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,10 @@ typedef struct s_map
 typedef struct s_img
 {
 	void	*im_p;
-	int		bp;
-	int		sl;
-	int		ed;
-	int		*im;
+	int		bp; //bits per pixel
+	int		sl; //line length
+	int		ed; //endian
+	char	*im;
 }	t_img;
 
 typedef struct s_var
@@ -117,6 +117,7 @@ void	draw_other_line_rev(t_var *var, t_point *p1, int dx, int dy);
 void	ft_set_alt(t_var *var, double fact);
 void	ft_set_zoom(t_var *var, double zoom);
 void	ft_set_iso(t_var *var, double angle);
+void	ft_set_offset(t_var *var, int offset[2]);
 /*
 	Fonctions pour gerer les evenements
 */

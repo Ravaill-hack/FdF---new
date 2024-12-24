@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   line_utils.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: Lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
+/*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/22 14:25:53 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/22 21:21:22 by Lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 10:55:37 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,7 +45,7 @@ void	draw_vertical_line(t_var *var, t_point *p1, t_point *p2)
 	y0 = p1->y;
 	while (y0 != p2->y)
 	{
-		draw_point(var, p1->x, p1->y, p1->col);
+		draw_point(var, p1->x, y0, p1->col);
 		if (p1->y > p2->y)
 			y0--;
 		else
@@ -61,7 +61,7 @@ void	draw_horizontal_line(t_var *var, t_point *p1, t_point *p2)
 	x0 = p1->x;
 	while (x0 != p2->x)
 	{
-		draw_point(var, p1->x, p1->y, p1->col);
+		draw_point(var, x0, p1->y, p1->col);
 		if (p1->x > p2->x)
 			x0--;
 		else
@@ -80,7 +80,7 @@ void	draw_other_line(t_var *var, t_point *p1, int dx, int dy)
 	l.y0 = p1->y;
 	while (++l.i <= abs(dx))
 	{
-		draw_point(var, p1->x, p1->y, p1->col);
+		draw_point(var, l.x0, l.y0, p1->col);
 		if (dx > 0)
 			l.x0 += 1;
 		else
@@ -108,7 +108,7 @@ void	draw_other_line_rev(t_var *var, t_point *p1, int dx, int dy)
 	l.y0 = p1->y;
 	while (++l.i < abs(dy))
 	{
-		draw_point(var, p1->x, p1->y, p1->col);
+		draw_point(var, l.x0, l.y0, p1->col);
 		if (dy > 0)
 			l.y0 += 1;
 		else
