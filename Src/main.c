@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 08:54:49 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/24 11:30:15 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 11:54:16 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,6 @@ int	main(int argc, char **argv)
 	{
 		var = init_var(argv[1]);
 		init_image(var);
-		draw_point(var, 10, 10, 0xFF00FF);
-		draw_point(var, 10, 11, 0xFF00FF);
-		draw_point(var, 11, 11, 0xFF00FF);
 		mlx_put_image_to_window(var->mlx_p, var->win_p, var->img->im_p, 0, 0);
 		mlx_hook(var->win_p, 17, 0, ft_close_n_free, (void *)var);
 		mlx_key_hook(var->win_p, do_sth, (void *)var);

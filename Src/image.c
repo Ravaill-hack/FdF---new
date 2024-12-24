@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:25:24 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/24 11:50:28 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 14:55:47 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,8 +18,8 @@ void	init_image(t_var *var)
 	double zoom;
 	double angle;
 
-	fact = 70;
-	zoom = 100.0;
+	fact = 10;
+	zoom = 15;
 	angle = 30.0;
 	draw_image(var, fact, zoom, angle);
 }
@@ -108,3 +108,87 @@ void	ft_set_offset(t_var *var, int offset[2])
 		node = get_next(node);
 	}
 }
+
+int	ft_set_rot(t_var *var, int keyc)
+{
+	if (keyc == 113 || keyc == 119)
+	{
+		if (keyc == 113)
+			var->att.ang_x = 2;
+		else if (keyc == 119)
+			var->att.ang_x = -2;
+		ft_rot_x(var);
+	}
+	if (keyc == 97 || keyc == 115)
+	{
+		if (keyc == 97)
+			var->att.ang_y = 2;
+		else if (keyc == 115)
+			var->att.ang_y = -2;
+		ft_rot_y(var);
+	}
+	if (keyc == 122 || keyc == 120)
+	{
+		if (keyc == 122)
+			var->att.ang_z = 2;
+		else if (keyc == 120)
+			var->att.ang_z = -2;
+		ft_rot_z(var);
+	}
+	return (0);
+}
+
+int	ft_rot_x(t_var *var)
+{
+	t_point *node;
+	double	rad;
+	int		tmp;
+
+	rad = var->att.ang_x * PI / 180;
+	node = *(var->map->point);
+	while (node != NULL)
+	{
+		tmp = node->y;
+		node->y = (int)(tmp * cos(rad) - (node->z) * sin(rad));
+		node->z = (int)(tmp * sin(rad) + (node->z) * cos(rad));
+		node = get_next(node);
+	}
+	return (0);
+}
+
+int	ft_rot_y(t_var *var)
+{
+	t_point *node;
+	double	rad;
+	int		tmp;
+
+	rad = var->att.ang_y * PI / 180;
+	node = *(var->map->point);
+	while (node != NULL)
+	{
+		tmp = node->x;
+		node->x = (int)(tmp * cos(rad) + (node->z) * sin(rad));
+		node->z = (int)(tmp * -sin(rad) + (node->z) * cos(rad));
+		node = get_next(node);
+	}
+	return (0);
+}
+
+int	ft_rot_z(t_var *var)
+{
+	t_point *node;
+	double	rad;
+	int		tmp;
+
+	rad = var->att.ang_z * PI / 180;
+	node = *(var->map->point);
+	while (node != NULL)
+	{
+		tmp = node->x;
+		node->x = (int)(tmp * cos(rad) - (node->y) * sin(rad));
+		node->y = (int)(tmp * sin(rad) + (node->y) * cos(rad));
+		node = get_next(node);
+	}
+	return (0);
+}
+

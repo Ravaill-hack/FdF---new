@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:10:07 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/24 11:44:07 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 14:54:57 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,17 @@
 # include <math.h>
 # include "minilibx-linux/mlx.h"
 # include "libft/Includes/libft.h"
+
+typedef struct s_att
+{
+	int		ang_x;
+	int		ang_y;
+	int		ang_z;
+	int		zoom;
+	int		fac_z;
+	int		x0;
+	int		y0;
+}	t_att;
 
 typedef struct s_point
 {
@@ -60,6 +71,7 @@ typedef struct s_var
 	void	*win_p;
 	t_map	*map;
 	t_img	*img;
+	t_att	att;
 }	t_var;
 
 typedef struct s_line
@@ -88,6 +100,7 @@ void	print_info_map(t_map *map);
 t_var	*init_var(const char *path);
 t_img	*init_img(void *mlx_p);
 t_map 	*init_map(const char *path);
+t_att	init_att(void);
 /*
 	Fonctions pour parser la carte
 */
@@ -118,6 +131,10 @@ void	ft_set_alt(t_var *var, double fact);
 void	ft_set_zoom(t_var *var, double zoom);
 void	ft_set_iso(t_var *var, double angle);
 void	ft_set_offset(t_var *var, int offset[2]);
+int		ft_set_rot(t_var *var, int keyc);
+int		ft_rot_x(t_var *var);
+int		ft_rot_y(t_var *var);
+int		ft_rot_z(t_var *var);
 /*
 	Fonctions pour gerer les evenements
 */
