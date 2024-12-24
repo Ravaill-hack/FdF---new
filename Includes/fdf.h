@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/12 10:10:07 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/24 14:54:57 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 15:25:11 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -127,6 +127,7 @@ void	draw_other_line_rev(t_var *var, t_point *p1, int dx, int dy);
 /*
 	Fonctions pour modifier l'affichage des noeuds
 */
+void	ft_set_image(t_var *var);
 void	ft_set_alt(t_var *var, double fact);
 void	ft_set_zoom(t_var *var, double zoom);
 void	ft_set_iso(t_var *var, double angle);

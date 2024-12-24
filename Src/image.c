@@ -6,7 +6,7 @@
 /*   By: lmatkows <lmatkows@student.42perpignan.    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/12/20 15:25:24 by lmatkows          #+#    #+#             */
-/*   Updated: 2024/12/24 14:55:47 by lmatkows         ###   ########.fr       */
+/*   Updated: 2024/12/24 15:25:27 by lmatkows         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,6 +21,19 @@ void	init_image(t_var *var)
 	fact = 10;
 	zoom = 15;
 	angle = 30.0;
+	draw_image(var, fact, zoom, angle);
+}
+
+void	ft_set_image(t_var *var)
+{
+	double fact;
+	double zoom;
+	double angle;
+
+	fact = 10;
+	zoom = 15;
+	angle = 30.0;
+	mlx_clear_window(var->mlx_p, var->win_p);
 	draw_image(var, fact, zoom, angle);
 }
 
